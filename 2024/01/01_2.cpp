@@ -18,8 +18,11 @@ int main() {
     fin.close();
 
     long long ans = 0;
-    for(int i = 0; i < l1.size(); i++) {
-        ans += l1[i] * l2[l1[i]];
+    for(auto &num: l1) {
+        auto it = l2.find(num);
+        if(it != l2.end()) {
+            ans += num * it->second;
+        }
     }
 
     cout<<ans<<endl;

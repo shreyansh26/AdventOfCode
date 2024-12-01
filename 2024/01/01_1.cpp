@@ -20,7 +20,7 @@ int main() {
     sort(l2.begin(), l2.end());
 
     long long ans = 0;
-    for(int i = 0; i < l1.size(); i++) {
+    for(size_t i = 0; i < l1.size(); i++) {
         ans += abs(l1[i] - l2[i]);
     }
 

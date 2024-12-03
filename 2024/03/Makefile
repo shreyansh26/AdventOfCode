@@ -2,7 +2,7 @@
 
 CXX = g++
 CXXFLAGS = -std=c++11 -Wall -Wextra
-TARGETS = 03_1 03_2
+TARGETS = 03_1 03_2 03_2_v2
 
 all: $(TARGETS)
 
@@ -10,6 +10,9 @@ all: $(TARGETS)
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
 03_2: 03_2.cpp
+	$(CXX) $(CXXFLAGS) -o $@ $<
+
+03_2_v2: 03_2_v2.cpp
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
 clean:

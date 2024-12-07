@@ -1,5 +1,3 @@
-# Makefile for compiling 01_1.cpp and 01_2.cpp
-
 CXX = g++
 CXXFLAGS = -std=c++11 -Wall -Wextra
 TARGETS = 03_1 03_2 03_2_v2

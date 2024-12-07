@@ -50,7 +50,7 @@ void dfs(vector<vector<char>> &grid, int i, int j, int m, int n, string dir) {
 }
 
 bool dfs2(vector<vector<char>> &grid, int i, int j, int m, int n, string dir) {
-    map<pair<pair<int, int>, int>, int> past_states;
+    set<tuple<int, int, int>> past_states;
     map<string, vector<int>> dir_path = {
         {"up", {-1, 0}}, 
         {"right", {0, 1}},
@@ -81,11 +81,10 @@ bool dfs2(vector<vector<char>> &grid, int i, int j, int m, int n, string dir) {
             }
         }
         else {
-            if(past_states.find({{i, j}, dir_map[dir]}) != past_states.end()) {
+            tuple<int, int, int> state = {i, j, dir_map[dir]};
+
+            if(!past_states.insert(state).second) {   
                 return true;
-            }
-            else {
-                past_states[{{i, j}, dir_map[dir]}] = 1;
             }
 
             i += dir_path[dir][0];
@@ -126,6 +125,14 @@ int main() {
     }
     
     dfs(grid, iniX, iniY, m, n, "up");
+
+    // print the grid
+    // for(int i = 0; i < m; i++) {
+    //     for(int j = 0; j < n; j++) {
+    //         cout << grid[i][j];
+    //     }
+    //     cout << endl;
+    // }
 
     int count = 0;
 

@@ -31,7 +31,7 @@ int main() {
             }
             else {
                 for(int j=0; j < (pow(3, i)); j+=3) {
-                    if(store[i-1][j/3] != -1) {
+                    if(store[i-1][j/3] != -1 and store[i-1][j/3] < target) {
                         store[i][j] = store[i-1][j/3] + nums[i];
                         store[i][j+1] = store[i-1][j/3] * nums[i];
                         store[i][j+2] = store[i-1][j/3] * pow(10, to_string(nums[i]).length()) + nums[i];
